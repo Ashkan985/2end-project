@@ -7,18 +7,21 @@ Btn.addEventListener("click", () => {
       newversion.forEach((element) => {
         const result = document.createElement("div");
         document.querySelector(".suggested-movies").appendChild(result);
+        result.classList.add("suggested-movie")
+        
+        const movieImg = document.createElement("img");
+        result.appendChild(movieImg);
+        movieImg.src = element.show.image.medium;
 
         const movieName = document.createElement("h3");
-        document.querySelector("div").appendChild(movieName);
+        result.appendChild(movieName);
         movieName.textContent = element.show.name;
 
-        const movieDiscription = document.createElement("p");
-        document.querySelector("div").appendChild(movieDiscription);
-        movieDiscription.innerHTML = element.show.summary;
+        const movieDescription = document.createElement("p");
+        result.appendChild(movieDescription);
+        movieDescription.innerHTML = element.show.summary;
 
-        const movieImg = document.createElement("img");
-        document.querySelector("div").appendChild(movieImg);
-        movieDiscription.innerHTML.src = element.show.image.medium;
+       
       });
       console.log(newversion);
     });
