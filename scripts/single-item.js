@@ -16,7 +16,7 @@ const insertElements = (element) => {
     genresElement.textContent = element.genres;
     summaryElement.innerHTML = element.summary;
     runTimeElement.textContent = `${element.runtime} minutes`;
-    posterURL.innerHTML = posterURL.src=element.image.medium;
+    posterURL.src = element.image.medium;
     return;
 };
 
@@ -30,6 +30,3 @@ fetch(`https://api.tvmaze.com/shows/${searchedItem}`).then((response) => {
         document.title = `${body.name}`;
     });
 });
-
-
-moviediscription.innerHTML = moviediscription.src=element.image.medium;
