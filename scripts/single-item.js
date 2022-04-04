@@ -1,20 +1,28 @@
+// document title
+document.title = "test";
 
-const cityContainer = document.querySelector("#citycontainer");
-const insertName = (name) => {
-    const nameElement = document.createElement("p");
-    nameElement.textContent = `${name.name} is ${name.height} cm tall & weighs ${name.mass}`;
-    document.body.appendChild(nameElement);
+
+//  declarations
+const nameElement = document.querySelector("#name");
+const genresElement = document.querySelector("#genres");
+const summaryElement = document.querySelector("#summary");
+
+// create DOM elements
+const insertElements = (element) => {
+    nameElement.textContent = `${element.name}`;
+    genresElement.textContent = `${element.genres}`;
+    summaryElement.innerHTML = `${element.summary}`;
+    return;
 };
 
-
-
 // fetch from TVMaze
-// replace "batman" with the search item from main page js file
+
 fetch("https://api.tvmaze.com/singlesearch/shows?q=batman").then((response) => {
     response.json().then((body) => {
-        console.log("Name: " + body.name);
-        console.log("Genres: " + body.genres);
-        console.log("Summary: " + body.summary);
-        // createCharacterElement(body);
+        insertElements(body);
     });
 })
+
+//  TO DO
+// document.title to change dynamically
+// in fetch, replace "batman" with the search item from main page js file
